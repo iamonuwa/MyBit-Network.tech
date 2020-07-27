@@ -1,0 +1,1519 @@
+{
+  "contractName": "MockDepositAddress",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "bank",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_bank",
+          "type": "address"
+        },
+        {
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "destianation",
+          "type": "address"
+        }
+      ],
+      "name": "Withdraw",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "tokenAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "destination",
+          "type": "address"
+        }
+      ],
+      "name": "withdraw",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "clearBalance",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getBalance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.24;\n\nimport \"../interfaces/ERC20.sol\";\nimport \"./MockCentralBank.sol\";\n\n/// @title Mock Deposit Address\n/// @author Ilan Doron\n/// @dev a dummy contract that simulates a deposit address of a token on a specific exchange. allows reserve manager to deposit and withdraw\n\n\ncontract MockDepositAddress {\n\n    MockCentralBank public bank;\n    address public owner;\n\n    /// @dev Ctor of this\n    /// @param _bank bank address to work with for deposit and withdraw\n    /// @param _owner owner address for this contract.\n    constructor( MockCentralBank _bank, address _owner ) public {\n        owner = _owner;\n        bank = _bank;\n    }\n\n    modifier onlyOwner( )\n    {\n        require(msg.sender == owner);\n        _;\n    }\n\n    event Withdraw(uint amount , address destianation);\n\n    function withdraw(uint tokenAmount, address destination) public;\n\n    function clearBalance(uint amount) public;\n\n    function getBalance() public view returns (uint);\n}\n",
+  "sourcePath": "/home/iamonuwa/Projects/MyBitFoundation/MyBit-Network.tech/contracts/kyber/MockDepositAddress.sol",
+  "ast": {
+    "absolutePath": "/home/iamonuwa/Projects/MyBitFoundation/MyBit-Network.tech/contracts/kyber/MockDepositAddress.sol",
+    "exportedSymbols": {
+      "MockDepositAddress": [
+        15060
+      ]
+    },
+    "id": 15061,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 15003,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:44"
+      },
+      {
+        "absolutePath": "/home/iamonuwa/Projects/MyBitFoundation/MyBit-Network.tech/contracts/interfaces/ERC20.sol",
+        "file": "../interfaces/ERC20.sol",
+        "id": 15004,
+        "nodeType": "ImportDirective",
+        "scope": 15061,
+        "sourceUnit": 8638,
+        "src": "26:33:44",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/iamonuwa/Projects/MyBitFoundation/MyBit-Network.tech/contracts/kyber/MockCentralBank.sol",
+        "file": "./MockCentralBank.sol",
+        "id": 15005,
+        "nodeType": "ImportDirective",
+        "scope": 15061,
+        "sourceUnit": 15002,
+        "src": "60:31:44",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title Mock Deposit Address\n @author Ilan Doron\n @dev a dummy contract that simulates a deposit address of a token on a specific exchange. allows reserve manager to deposit and withdraw",
+        "fullyImplemented": false,
+        "id": 15060,
+        "linearizedBaseContracts": [
+          15060
+        ],
+        "name": "MockDepositAddress",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 15007,
+            "name": "bank",
+            "nodeType": "VariableDeclaration",
+            "scope": 15060,
+            "src": "326:27:44",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_MockCentralBank_$15001",
+              "typeString": "contract MockCentralBank"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 15006,
+              "name": "MockCentralBank",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 15001,
+              "src": "326:15:44",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_MockCentralBank_$15001",
+                "typeString": "contract MockCentralBank"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 15009,
+            "name": "owner",
+            "nodeType": "VariableDeclaration",
+            "scope": 15060,
+            "src": "359:20:44",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 15008,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "359:7:44",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 15024,
+              "nodeType": "Block",
+              "src": "599:53:44",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 15018,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 15016,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15009,
+                      "src": "609:5:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 15017,
+                      "name": "_owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15013,
+                      "src": "617:6:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "609:14:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 15019,
+                  "nodeType": "ExpressionStatement",
+                  "src": "609:14:44"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 15022,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 15020,
+                      "name": "bank",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15007,
+                      "src": "633:4:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_MockCentralBank_$15001",
+                        "typeString": "contract MockCentralBank"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 15021,
+                      "name": "_bank",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15011,
+                      "src": "640:5:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_MockCentralBank_$15001",
+                        "typeString": "contract MockCentralBank"
+                      }
+                    },
+                    "src": "633:12:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_MockCentralBank_$15001",
+                      "typeString": "contract MockCentralBank"
+                    }
+                  },
+                  "id": 15023,
+                  "nodeType": "ExpressionStatement",
+                  "src": "633:12:44"
+                }
+              ]
+            },
+            "documentation": "@dev Ctor of this\n @param _bank bank address to work with for deposit and withdraw\n @param _owner owner address for this contract.",
+            "id": 15025,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 15014,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15011,
+                  "name": "_bank",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15025,
+                  "src": "552:21:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_MockCentralBank_$15001",
+                    "typeString": "contract MockCentralBank"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 15010,
+                    "name": "MockCentralBank",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 15001,
+                    "src": "552:15:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_MockCentralBank_$15001",
+                      "typeString": "contract MockCentralBank"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 15013,
+                  "name": "_owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15025,
+                  "src": "575:14:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 15012,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "575:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "550:41:44"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 15015,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "599:0:44"
+            },
+            "scope": 15060,
+            "src": "539:113:44",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 15035,
+              "nodeType": "Block",
+              "src": "684:56:44",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 15031,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 15028,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 28648,
+                            "src": "702:3:44",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 15029,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "702:10:44",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 15030,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 15009,
+                          "src": "716:5:44",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "702:19:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 15027,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        28651,
+                        28652
+                      ],
+                      "referencedDeclaration": 28651,
+                      "src": "694:7:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 15032,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "694:28:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 15033,
+                  "nodeType": "ExpressionStatement",
+                  "src": "694:28:44"
+                },
+                {
+                  "id": 15034,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "732:1:44"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 15036,
+            "name": "onlyOwner",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 15026,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "676:3:44"
+            },
+            "src": "658:82:44",
+            "visibility": "internal"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 15042,
+            "name": "Withdraw",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 15041,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15038,
+                  "indexed": false,
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15042,
+                  "src": "761:11:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15037,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "761:4:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 15040,
+                  "indexed": false,
+                  "name": "destianation",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15042,
+                  "src": "775:20:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 15039,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "775:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "760:36:44"
+            },
+            "src": "746:51:44"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 15049,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "withdraw",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 15047,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15044,
+                  "name": "tokenAmount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15049,
+                  "src": "821:16:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15043,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "821:4:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 15046,
+                  "name": "destination",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15049,
+                  "src": "839:19:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 15045,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "839:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "820:39:44"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 15048,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "866:0:44"
+            },
+            "scope": 15060,
+            "src": "803:64:44",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 15054,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "clearBalance",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 15052,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15051,
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15054,
+                  "src": "895:11:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15050,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "895:4:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "894:13:44"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 15053,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "914:0:44"
+            },
+            "scope": 15060,
+            "src": "873:42:44",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 15059,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getBalance",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 15055,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "940:2:44"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 15058,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15057,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15059,
+                  "src": "964:4:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15056,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "964:4:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "963:6:44"
+            },
+            "scope": 15060,
+            "src": "921:49:44",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 15061,
+        "src": "291:681:44"
+      }
+    ],
+    "src": "0:973:44"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/iamonuwa/Projects/MyBitFoundation/MyBit-Network.tech/contracts/kyber/MockDepositAddress.sol",
+    "exportedSymbols": {
+      "MockDepositAddress": [
+        15060
+      ]
+    },
+    "id": 15061,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 15003,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:44"
+      },
+      {
+        "absolutePath": "/home/iamonuwa/Projects/MyBitFoundation/MyBit-Network.tech/contracts/interfaces/ERC20.sol",
+        "file": "../interfaces/ERC20.sol",
+        "id": 15004,
+        "nodeType": "ImportDirective",
+        "scope": 15061,
+        "sourceUnit": 8638,
+        "src": "26:33:44",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/iamonuwa/Projects/MyBitFoundation/MyBit-Network.tech/contracts/kyber/MockCentralBank.sol",
+        "file": "./MockCentralBank.sol",
+        "id": 15005,
+        "nodeType": "ImportDirective",
+        "scope": 15061,
+        "sourceUnit": 15002,
+        "src": "60:31:44",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title Mock Deposit Address\n @author Ilan Doron\n @dev a dummy contract that simulates a deposit address of a token on a specific exchange. allows reserve manager to deposit and withdraw",
+        "fullyImplemented": false,
+        "id": 15060,
+        "linearizedBaseContracts": [
+          15060
+        ],
+        "name": "MockDepositAddress",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 15007,
+            "name": "bank",
+            "nodeType": "VariableDeclaration",
+            "scope": 15060,
+            "src": "326:27:44",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_MockCentralBank_$15001",
+              "typeString": "contract MockCentralBank"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 15006,
+              "name": "MockCentralBank",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 15001,
+              "src": "326:15:44",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_MockCentralBank_$15001",
+                "typeString": "contract MockCentralBank"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 15009,
+            "name": "owner",
+            "nodeType": "VariableDeclaration",
+            "scope": 15060,
+            "src": "359:20:44",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 15008,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "359:7:44",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 15024,
+              "nodeType": "Block",
+              "src": "599:53:44",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 15018,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 15016,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15009,
+                      "src": "609:5:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 15017,
+                      "name": "_owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15013,
+                      "src": "617:6:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "609:14:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 15019,
+                  "nodeType": "ExpressionStatement",
+                  "src": "609:14:44"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 15022,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 15020,
+                      "name": "bank",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15007,
+                      "src": "633:4:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_MockCentralBank_$15001",
+                        "typeString": "contract MockCentralBank"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 15021,
+                      "name": "_bank",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15011,
+                      "src": "640:5:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_MockCentralBank_$15001",
+                        "typeString": "contract MockCentralBank"
+                      }
+                    },
+                    "src": "633:12:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_MockCentralBank_$15001",
+                      "typeString": "contract MockCentralBank"
+                    }
+                  },
+                  "id": 15023,
+                  "nodeType": "ExpressionStatement",
+                  "src": "633:12:44"
+                }
+              ]
+            },
+            "documentation": "@dev Ctor of this\n @param _bank bank address to work with for deposit and withdraw\n @param _owner owner address for this contract.",
+            "id": 15025,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 15014,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15011,
+                  "name": "_bank",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15025,
+                  "src": "552:21:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_MockCentralBank_$15001",
+                    "typeString": "contract MockCentralBank"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 15010,
+                    "name": "MockCentralBank",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 15001,
+                    "src": "552:15:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_MockCentralBank_$15001",
+                      "typeString": "contract MockCentralBank"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 15013,
+                  "name": "_owner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15025,
+                  "src": "575:14:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 15012,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "575:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "550:41:44"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 15015,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "599:0:44"
+            },
+            "scope": 15060,
+            "src": "539:113:44",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 15035,
+              "nodeType": "Block",
+              "src": "684:56:44",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 15031,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 15028,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 28648,
+                            "src": "702:3:44",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 15029,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "702:10:44",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 15030,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 15009,
+                          "src": "716:5:44",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "702:19:44",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 15027,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        28651,
+                        28652
+                      ],
+                      "referencedDeclaration": 28651,
+                      "src": "694:7:44",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 15032,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "694:28:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 15033,
+                  "nodeType": "ExpressionStatement",
+                  "src": "694:28:44"
+                },
+                {
+                  "id": 15034,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "732:1:44"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 15036,
+            "name": "onlyOwner",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 15026,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "676:3:44"
+            },
+            "src": "658:82:44",
+            "visibility": "internal"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 15042,
+            "name": "Withdraw",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 15041,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15038,
+                  "indexed": false,
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15042,
+                  "src": "761:11:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15037,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "761:4:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 15040,
+                  "indexed": false,
+                  "name": "destianation",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15042,
+                  "src": "775:20:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 15039,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "775:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "760:36:44"
+            },
+            "src": "746:51:44"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 15049,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "withdraw",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 15047,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15044,
+                  "name": "tokenAmount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15049,
+                  "src": "821:16:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15043,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "821:4:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 15046,
+                  "name": "destination",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15049,
+                  "src": "839:19:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 15045,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "839:7:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "820:39:44"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 15048,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "866:0:44"
+            },
+            "scope": 15060,
+            "src": "803:64:44",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 15054,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "clearBalance",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 15052,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15051,
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15054,
+                  "src": "895:11:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15050,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "895:4:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "894:13:44"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 15053,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "914:0:44"
+            },
+            "scope": 15060,
+            "src": "873:42:44",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 15059,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getBalance",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 15055,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "940:2:44"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 15058,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15057,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15059,
+                  "src": "964:4:44",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15056,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "964:4:44",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "963:6:44"
+            },
+            "scope": 15060,
+            "src": "921:49:44",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 15061,
+        "src": "291:681:44"
+      }
+    ],
+    "src": "0:973:44"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.9",
+  "updatedAt": "2020-07-27T21:29:55.438Z",
+  "devdoc": {
+    "author": "Ilan Doron",
+    "methods": {},
+    "title": "Mock Deposit Address"
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "contractName": "OrderListFactoryInterface",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "admin",
+          "type": "address"
+        }
+      ],
+      "name": "newOrdersContract",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.24;\n\n\nimport \"./OrderListInterface.sol\";\n\n\ninterface OrderListFactoryInterface {\n    function newOrdersContract(address admin) external returns(OrderListInterface);\n}\n",
+  "sourcePath": "/home/iamonuwa/Projects/MyBitFoundation/MyBit-Network.tech/contracts/kyber/OrderListFactoryInterface.sol",
+  "ast": {
+    "absolutePath": "/home/iamonuwa/Projects/MyBitFoundation/MyBit-Network.tech/contracts/kyber/OrderListFactoryInterface.sol",
+    "exportedSymbols": {
+      "OrderListFactoryInterface": [
+        15659
+      ]
+    },
+    "id": 15660,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 15650,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:49"
+      },
+      {
+        "absolutePath": "/home/iamonuwa/Projects/MyBitFoundation/MyBit-Network.tech/contracts/kyber/OrderListInterface.sol",
+        "file": "./OrderListInterface.sol",
+        "id": 15651,
+        "nodeType": "ImportDirective",
+        "scope": 15660,
+        "sourceUnit": 15762,
+        "src": "27:34:49",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 15659,
+        "linearizedBaseContracts": [
+          15659
+        ],
+        "name": "OrderListFactoryInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 15658,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "newOrdersContract",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 15654,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15653,
+                  "name": "admin",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15658,
+                  "src": "133:13:49",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 15652,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "133:7:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "132:15:49"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 15657,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15656,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15658,
+                  "src": "165:18:49",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_OrderListInterface_$15761",
+                    "typeString": "contract OrderListInterface"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 15655,
+                    "name": "OrderListInterface",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 15761,
+                    "src": "165:18:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_OrderListInterface_$15761",
+                      "typeString": "contract OrderListInterface"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "164:20:49"
+            },
+            "scope": 15659,
+            "src": "106:79:49",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 15660,
+        "src": "64:123:49"
+      }
+    ],
+    "src": "0:188:49"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/iamonuwa/Projects/MyBitFoundation/MyBit-Network.tech/contracts/kyber/OrderListFactoryInterface.sol",
+    "exportedSymbols": {
+      "OrderListFactoryInterface": [
+        15659
+      ]
+    },
+    "id": 15660,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 15650,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:49"
+      },
+      {
+        "absolutePath": "/home/iamonuwa/Projects/MyBitFoundation/MyBit-Network.tech/contracts/kyber/OrderListInterface.sol",
+        "file": "./OrderListInterface.sol",
+        "id": 15651,
+        "nodeType": "ImportDirective",
+        "scope": 15660,
+        "sourceUnit": 15762,
+        "src": "27:34:49",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 15659,
+        "linearizedBaseContracts": [
+          15659
+        ],
+        "name": "OrderListFactoryInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 15658,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "newOrdersContract",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 15654,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15653,
+                  "name": "admin",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15658,
+                  "src": "133:13:49",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 15652,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "133:7:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "132:15:49"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 15657,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15656,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 15658,
+                  "src": "165:18:49",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_OrderListInterface_$15761",
+                    "typeString": "contract OrderListInterface"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 15655,
+                    "name": "OrderListInterface",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 15761,
+                    "src": "165:18:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_OrderListInterface_$15761",
+                      "typeString": "contract OrderListInterface"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "164:20:49"
+            },
+            "scope": 15659,
+            "src": "106:79:49",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 15660,
+        "src": "64:123:49"
+      }
+    ],
+    "src": "0:188:49"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.9",
+  "updatedAt": "2020-07-27T21:29:55.492Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
