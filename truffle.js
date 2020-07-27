@@ -69,6 +69,8 @@ module.exports = {
         return new HDWalletProvider(MNEMONIC, "https://ropsten.infura.io/v3/"+INFURA_API_KEY)
       },
       network_id: 3,
+      networkCheckTimeout: 1000000000,
+      gas: 8000000,
       gasPrice: 40000000000
     },
     rinkeby: {
@@ -76,6 +78,8 @@ module.exports = {
         return new HDWalletProvider(MNEMONIC, "https://rinkeby.infura.io/v3/"+INFURA_API_KEY)
       },
       network_id: 4,
+      networkCheckTimeout: 1000000000,
+      gas: 8000000,
       gasPrice: 40000000000
     },
     ethpm: {

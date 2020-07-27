@@ -61,10 +61,6 @@
                 "type": "string"
             },
             {
-                "name": "_modelID",
-                "type": "bytes32"
-            },
-            {
                 "name": "_fundingLength",
                 "type": "uint256"
             },
@@ -83,6 +79,10 @@
             {
                 "name": "_paymentToken",
                 "type": "address"
+            },
+            {
+                "name": "_paymentToken",
+                "type": "address"
             }
         ],
         "name": "createAssetOrderETH",
@@ -90,7 +90,7 @@
         "payable": true,
         "stateMutability": "payable",
         "type": "function",
-        "signature": "0xa84d4286"
+        "signature": "0x85b5d606"
     },
     {
         "constant": false,
